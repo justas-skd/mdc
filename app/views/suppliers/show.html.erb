@@ -1,0 +1,19 @@
+<h2>Supplier</h2>
+<p>
+  <strong>Name:</strong>
+  <%= @supplier.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @supplier.address %>
+</p>
+
+<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
+<%= link_to 'Back', suppliers_path %>
+
+<h2>Add a product:</h2>
+<%= render 'products/form' %>
+
+<h2>Products</h2>
+<%= render partial: @supplier.products %>

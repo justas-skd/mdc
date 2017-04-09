@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ean: MyString
+  description: MyText
+  supplier: one
+
+two:
+  ean: MyString
+  description: MyText
+  supplier: two

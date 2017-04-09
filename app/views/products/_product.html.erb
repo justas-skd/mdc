@@ -1,0 +1,17 @@
+<p>
+  <strong>Product <%= product_counter + 1%></strong>
+</p>
+<p>
+  <strong>Ean:</strong>
+  <%= product.ean %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= product.description %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Product', [product.supplier, product],
+               method: :delete,
+               data: { confirm: 'Are you sure it is a soft delete?' } %>
+</p>
