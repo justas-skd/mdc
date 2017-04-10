@@ -1,10 +1,22 @@
 class ProductsController < ApplicationController
 
+  def new
+    @product = Product.new
+  end
+
   def create
+
     @supplier = Supplier.find(params[:supplier_id])
     @product = @supplier.products.create(product_params)
-    redirect_to supplier_path(@supplier)
+    if @product.save
+      redirect_to supplier_path(@supplier)
+    else
+      render 'suppliers/show', id: params[:supplier_id]
+    end
   end
+
+
+
 
   def destroy
       @supplier = Supplier.find(params[:supplier_id])
@@ -16,6 +28,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:ean, :description)
+      params.require(:product).permit(:ean, :description, :purchase_price, :sale_price, :vat)
     end
 end

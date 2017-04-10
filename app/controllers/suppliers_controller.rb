@@ -10,6 +10,7 @@ class SuppliersController < ApplicationController
 
   def show
     @supplier = Supplier.find(params[:id])
+    @product = @supplier.products.build
   end
 
   def edit

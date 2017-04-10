@@ -9,6 +9,16 @@
   <strong>Description:</strong>
   <%= product.description %>
 </p>
+<strong>Purchase price:</strong>
+<%= product.purchase_price %>
+</p>
+<p>
+<strong>Sale price:</strong>
+<%= product.sale_price %>
+</p>
+<strong>Vat:</strong>
+<%= product.vat %>
+</p>
 
 <p>
   <%= link_to 'Destroy Product', [product.supplier, product],

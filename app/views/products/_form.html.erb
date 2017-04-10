@@ -1,4 +1,25 @@
-<%= form_for([@supplier, @supplier.products.build]) do |f| %>
+
+<%= form_for([@supplier, @product]) do |f| %>
+<%puts '###################################'%>
+<% puts @supplier%>
+<% puts @product.errors.any?%>
+<%puts '###################################'%>
+
+<% if @product.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@product.errors.count, "error") %> prohibited
+      this supplier from being saved:
+    </h2>
+    <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
   <p>
     <%= f.label :ean %><br>
     <%= f.text_field :ean %>
@@ -7,6 +28,19 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </p>
+  <p>
+    <%= f.label :purchase_price %><br>
+    <%= f.text_area :purchase_price %>
+  </p>
+  <p>
+    <%= f.label :sale_price %><br>
+    <%= f.text_area :sale_price %>
+  </p>
+  <p>
+    <%= f.label :vat %><br>
+    <%= f.text_area :vat %>
+  </p>
+
   <p>
     <%= f.submit %>
   </p>
