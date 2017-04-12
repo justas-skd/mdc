@@ -11,6 +11,6 @@ class Product < ApplicationRecord
 
   private
   def check_purchase_price_and_sale_price
-    errors.add(:sale_price, "can't be smaller than purchase price") if purchase_price < sale_price
+    errors.add(:sale_price, "can't be smaller than purchase price") if purchase_price > sale_price
   end
 end

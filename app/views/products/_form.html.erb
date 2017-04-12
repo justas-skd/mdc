@@ -1,9 +1,5 @@
 
 <%= form_for([@supplier, @product]) do |f| %>
-<%puts '###################################'%>
-<% puts @supplier%>
-<% puts @product.errors.any?%>
-<%puts '###################################'%>
 
 <% if @product.errors.any? %>
   <div id="error_explanation">
