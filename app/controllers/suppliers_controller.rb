@@ -40,9 +40,15 @@ class SuppliersController < ApplicationController
   # TODO: implement soft delete
   def destroy
     @supplier = Supplier.find(params[:id])
-    @supplier.destroy
+    # @supplier.destroy
+    if @supplier.products.exists?
+      redirect_to @supplier, :flash => { :error => "You have to delete all the products first!" }
+      # errors.add("Before deleting the supplier you have to delete all its products.")
+    else
+      @supplier.update_attribute(:deleted_at, Time.current)
+      redirect_to suppliers_path
+    end
 
-    redirect_to suppliers_path
   end
 
   private

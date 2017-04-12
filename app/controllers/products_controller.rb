@@ -21,7 +21,8 @@ class ProductsController < ApplicationController
   def destroy
       @supplier = Supplier.find(params[:supplier_id])
       @product = @supplier.products.find(params[:id])
-      @product.destroy
+      @product.update_attribute(:deleted_at, Time.current)
+      # @product.destroy
       redirect_to supplier_path(@supplier)
   end
 

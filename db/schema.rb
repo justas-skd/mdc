@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410050220) do
+ActiveRecord::Schema.define(version: 20170412122547) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "ean"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170410050220) do
     t.float    "purchase_price", limit: 24
     t.float    "sale_price",     limit: 24
     t.integer  "vat"
+    t.datetime "deleted_at"
     t.index ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170410050220) do
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   add_foreign_key "products", "suppliers"
